@@ -3,6 +3,11 @@ from zipfile import ZipFile
 import cv2
 from pyzbar.pyzbar import decode
 
+"""
+Открыть проект в IDE
+Подтянуть библиотеки командой "pip install -r requirements.txt"
+Положить исходный архив в папку, Указать имя архива а переменную file, запустить скрипт
+"""
 
 file="PW-ID_223300-223327.zip"
 def qr_read(img_path):
