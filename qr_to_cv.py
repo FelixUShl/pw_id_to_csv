@@ -4,7 +4,7 @@ import cv2
 from pyzbar.pyzbar import decode
 
 
-file="PW-ID_2244DB-22455C.zip"
+file="PW-ID_223300-223327.zip"
 def qr_read(img_path):
     img = cv2.imread(img_path)
     return decode(img)[0][0].decode('utf-8')
@@ -43,9 +43,10 @@ def do_csv(zip_file_name: str) -> str:
 
     # Создадим список файлов в папке, проверим что они все изображения
     files = sorted(os.listdir("tmp"))
+    qrs = []
     for item in files:
-        if item[-4:] != ".png": return "BAD"
-    data = generate_qr_list(files, "tmp")
+        if item[-4:] == ".png": qrs.append(item)
+    data = generate_qr_list(qrs, "tmp")
     generate_csv(data)
 
 
